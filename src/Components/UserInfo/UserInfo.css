@@ -1,0 +1,13 @@
+li img {
+  width: 100px;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  width: max-content;
+  border: 3px pink dashed;
+  padding: 15px;
+}
