@@ -5,3 +5,21 @@
   font-weight: 600;
   text-decoration: underline;
 }
+
+.mainDiv,
+.allCards,
+.allUsersInfo {
+  margin: 0% !important;
+  padding: 0% !important;
+  max-width: 100%;
+}
+
+.allCards {
+  max-width: 100% !important;
+  margin-left: 100px;
+}
+
+.mainDiv {
+  align-items: center;
+  text-align: center;
+}

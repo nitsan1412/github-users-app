@@ -41,23 +41,17 @@ class Container extends React.Component {
     }
 
      addUser = (e) => {
-      console.log("usersArr is : " +this.state.usersArr)
-
        if (!this.state.usersArr.includes(this.state.newUser)){
-        console.log(this.state.newUser)
          this.callAxios(this.state.newUser)
          this.setState((state) => ({
           usersArr:[this.state.newUser,...this.state.usersArr]
          }))
         localStorage.setItem("users", JSON.stringify(this.state.usersArr))
         this.setState({newUser:""})
-        console.log(this.state.usersArr)
-
        }
     }
 
      componentDidMount= () => {
-
       for (let i = 0; i < this.state.usersArr.length; i++) {
         let user = this.state.usersArr[i];
         this.callAxios (user);
@@ -67,27 +61,32 @@ class Container extends React.Component {
      }
 
      removeUser = (userRemoved) => {
+       console.log(userRemoved);
       let temp = [...this.state.usersArr]
-      let newUsersArr = temp.filter((user) => user.login !== userRemoved.login)
+      console.log(temp);
+      let newUsersArr = temp.filter((user) => {return (user !== userRemoved)})
       localStorage.setItem("users", JSON.stringify(newUsersArr))
-      this.setState({usersArr: newUsersArr})
-  }
-     
+      this.setState((state) => ({
+        usersArr:newUsersArr
+       }))
+      console.log(this.state.usersArr);
+
+        } 
       render(){
             return (
-              <div>
+              <div className= "mainDiv">
                 <div className="row">
                   <h1 className="main_headline">Github Users</h1>
                 </div>
-                <div className="row">
+                <div className="row ">
                     <FormInput handleUpdateState={this.handleUpdateState} addUser={this.addUser} newUser={this.state.newUser}/>
                 </div>
-                <div className= "allUsersInfo container" >
-                       <div className= "row">
+                <div className= "allUsersInfo container overflow-hidden" >
+                       <div className= "row justify-content-around allCards">
                           {this.state.infoArrUsers.map((user,index) => 
                           <UserInfo removeUser={this.removeUser} user ={user} key= {index}/>
                           )}
-                       </div>                   
+                       </div>
                 </div>
               </div>
       )

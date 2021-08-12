@@ -1,12 +1,13 @@
 li {
   list-style-type: none;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 
 ul {
   /* display: inline-block; */
   max-width: 300px;
   border: 3px lightcoral dashed;
+  border-radius: 25%;
   padding: 0px !important;
   background-color: ;
 }
@@ -17,14 +18,14 @@ div {
 }
 
 .images {
-  width: 150px !important;
-  height: 150px !important;
+  width: 100px !important;
+  height: 100px !important;
   border-radius: 150px !important;
   margin-left: 0.9em;
 }
 
 .cards {
-  max-width: 200px !important;
+  max-width: 185px !important;
   padding: 1em;
   color: aqua;
   background-color: black !important;
@@ -32,11 +33,14 @@ div {
 
 .removeBtn {
   /* margin-top: 10px; */
-  max-width: 30px;
+  max-width: 17px;
+  max-height: 20px;
+  font-size: 12px;
+  padding-left: 4px;
 }
 
 .cardHeader {
-  font-size: 25px;
+  font-size: 1.5em;
   color: aquamarine !important;
   font-weight: 600;
 }
